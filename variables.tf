@@ -13,7 +13,7 @@ variable "prefix" {
   default = "dbarr"
 }
 
-variable "region" {
+variable "aws_region" {
   type    = string
   default = "eu-west-1"
 }

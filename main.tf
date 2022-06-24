@@ -1,7 +1,7 @@
 provider "hcp" {}
 
 provider "aws" {
-  region = var.region
+  region = var.aws_region
   default_tags {
     tags = {
       Owner = var.owner
@@ -22,7 +22,7 @@ data "hcp_packer_image" "ubuntu" {
   bucket_name    = var.packer_bucket
   cloud_provider = "aws"
   iteration_id   = data.hcp_packer_iteration.ubuntu.ulid
-  region         = var.region
+  region         = var.aws_region
 }
 
 resource "aws_instance" "static" {
