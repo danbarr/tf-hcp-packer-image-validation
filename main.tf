@@ -61,7 +61,7 @@ resource "aws_autoscaling_group" "asg" {
 
   launch_template {
     id      = aws_launch_template.template.id
-    version = "$Latest"
+    version = aws_launch_template.template.latest_version
   }
 
   instance_refresh {
