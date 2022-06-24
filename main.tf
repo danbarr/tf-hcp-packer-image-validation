@@ -15,7 +15,7 @@ data "aws_availability_zones" "available" {
 
 data "hcp_packer_iteration" "ubuntu" {
   bucket_name = var.packer_bucket
-  channel     = "production"
+  channel     = var.packer_channel
 }
 
 data "hcp_packer_image" "ubuntu" {

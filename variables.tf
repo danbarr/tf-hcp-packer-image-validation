@@ -8,6 +8,11 @@ variable "packer_bucket" {
   default = "ubuntu-focal"
 }
 
+variable "packer_channel" {
+  type    = string
+  default = "production"
+}
+
 variable "prefix" {
   type    = string
   default = "dbarr"
