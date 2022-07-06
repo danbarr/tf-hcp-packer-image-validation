@@ -33,8 +33,7 @@ resource "aws_instance" "static" {
     http_tokens   = "required"
   }
   tags = {
-    Name  = "${var.owner}-static-instance"
-    Owner = var.owner
+    Name  = "${var.prefix}-static-instance"
   }
 }
 
@@ -70,5 +69,9 @@ resource "aws_autoscaling_group" "asg" {
       min_healthy_percentage = 50
     }
     triggers = ["tag"]
+  }
+
+  lifecycle {
+    ignore_changes = [desired_capacity]
   }
 }
