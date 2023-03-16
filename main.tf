@@ -35,6 +35,13 @@ resource "aws_instance" "static" {
   tags = {
     Name = "${var.prefix}-static-instance"
   }
+
+  lifecycle {
+    postcondition {
+      condition     = self.ami == data.hcp_packer_image.ubuntu.cloud_image_id
+      error_message = "A newer source AMI is available in the HCP Packer channel, please re-deploy."
+    }
+  }
 }
 
 resource "aws_launch_template" "template" {
@@ -47,6 +54,13 @@ resource "aws_launch_template" "template" {
     tags = {
       Name  = "${var.prefix}-asg-instance"
       Owner = var.owner
+    }
+  }
+
+  lifecycle {
+    postcondition {
+      condition     = self.image_id == data.hcp_packer_image.ubuntu.cloud_image_id
+      error_message = "A newer source AMI is available in the HCP Packer channel, please re-deploy."
     }
   }
 }
