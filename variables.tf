@@ -5,7 +5,7 @@ variable "owner" {
 
 variable "packer_bucket" {
   type    = string
-  default = "ubuntu-focal"
+  default = "ubuntu20-base"
 }
 
 variable "packer_channel" {
@@ -15,10 +15,10 @@ variable "packer_channel" {
 
 variable "prefix" {
   type    = string
-  default = "dbarr"
+  default = "hashicafe"
 }
 
 variable "aws_region" {
   type    = string
-  default = "eu-west-1"
+  default = "us-east-2"
 }

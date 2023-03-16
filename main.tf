@@ -33,7 +33,7 @@ resource "aws_instance" "static" {
     http_tokens   = "required"
   }
   tags = {
-    Name  = "${var.prefix}-static-instance"
+    Name = "${var.prefix}-static-instance"
   }
 }
 
